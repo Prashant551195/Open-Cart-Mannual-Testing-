@@ -1,0 +1,39 @@
+LOGIN FUNCTIONALITY					
+
+Environment: QA/Staging  |  Pre-conditions: User has a registered and verified account.					
+					
+Test Case ID	Scenario / Description	Test Steps	Expected Result	Type	Priority
+TC_LOGIN_001	Verify successful login with valid credentials.	
+1. Navigate to Login page.
+2. Enter valid Email.
+3. Enter valid Password.
+4. Click 'Login'	User is successfully authenticated and redirected to the Dashboard/Home page.	Positive	High
+
+TC_LOGIN_002	Verify login fails with an unregistered email address.
+1. Enter an email not in the system.
+2. Enter any password.
+3. Click 'Login'	System displays error message: 'Invalid email or password.' User remains on login page.	Negative	High
+
+TC_LOGIN_003	Verify login fails with a wrong password.	"1. Enter a valid registered email.
+2. Enter an incorrect password.
+3. Click 'Login'	System displays error message: 'Invalid email or password.' password field is cleared.	Negative	High
+
+TC_LOGIN_004	Verify login validation when fields are left blank.	"1. Leave Email and Password fields empty.
+2. Click 'Login'	Inline validation messages appear: 'Email is required' and 'Password is required'.	Negative	Medium
+
+TC_LOGIN_005	Verify account lockout after 5 consecutive failed attempts.	"1. Enter valid email but wrong password 5 times in a row.
+2. Click 'Login' on the 5th time."	Account is temporarily locked. Message displays: 'Account locked for 15 minutes due to multiple failed attempts.'	Edge Case	High
+
+TC_LOGIN_006	Verify password field masking (security check).	1. Type characters into the Password input field.	Characters are masked/hidden as dots (●●●●●) or asterisks for privacy.	Positive	Medium
+TC_LOGIN_007	Verify login functionality handles SQL Injection attempts safely.	
+1. Enter ' OR '1'='1 in the email/password field.
+2. Click 'Login'	System rejects the input safely with a standard validation error. No database data is leaked.	Edge Case	High
+
+TC_LOGIN_008	Verify 'Show Password' toggle functionality.	"1. Enter text in the Password field.
+2. Click the eye icon/toggle button."	Masked characters become plain text. Clicking again masks them again.	Positive	Low
+TC_LOGIN_009	Verify form submission using the 'Enter' keyboard key.	"1. Enter valid Email and Password.
+
+2. Press the 'Enter' key on the keyboard instead of clicking 'Login'."	Form submits successfully and authenticates the user just like clicking the button.	Positive	Medium
+TC_LOGIN_010	Verify text inputs trim accidental leading/trailing spaces.	"1. Enter valid email with a space at the end ('user@email.com ').
+2. Enter valid password.
+3. Click 'Login'	System trims the whitespace automatically and logs the user in successfully.	Edge Case	Medium
