@@ -10,17 +10,3 @@ Client: OpenCart
 Reference Document: FRS
 Created By: pj
 Creation Date: 01/06/2026
-
----
-
-##  Manual Testing Lifecycle Covered
-
-- Understanding & Exploring the Functionality 
-- Test Plan
-- Writing Test Scenarios
-- Writing Test Cases & Reviews
-- Environment Setup & Build Deployment
-- Test Execution
-- Bug Reporting & Tracking
-- Sanity Testing, Re-Testing & Regression Testing
-- Test Sign-off
